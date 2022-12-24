@@ -7,3 +7,5 @@ const shorten = async (req: NextApiRequest, res: NextApiResponse) => {
   const { url } = req.body;
   console.log(url);
 };
+
+export default shorten;

@@ -23,10 +23,10 @@ const AddUrl = () => {
     if (!checkValidUrl(isUrl)) {
       setIsInvalidUrl(true);
     }
-    // const res = await axios.post("http://localhost:3000/api/shorten", {
-    //   url: isUrl,
-    // });
-    // console.log(res);
+    const res = await axios.post("http://localhost:3000/api/shorten", {
+      url: isUrl,
+    });
+    console.log(res);
   };
 
   return (
