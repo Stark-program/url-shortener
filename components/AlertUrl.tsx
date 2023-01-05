@@ -6,7 +6,7 @@ const Alerurl = () => {
     >
       <h1 className="text-red text-3xl font-bold ">Error!</h1>
       <span className="text-red block text-3xl sm:inline">
-        Please enter valid Url
+        Please enter valid URL
       </span>
     </div>
   );

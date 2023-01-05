@@ -5,6 +5,8 @@ import Alerurl from "./AlertUrl";
 const AddUrl = () => {
   const [isUrl, setIsUrl] = useState("");
   const [isInvalidUrl, setIsInvalidUrl] = useState(false);
+  const [isShortUrl, setIsShortUrl] = useState("");
+  const [response, setResponse] = useState(false);
 
   const checkValidUrl = (urlString: string) => {
     var inputElement = document.createElement("input");
@@ -19,14 +21,24 @@ const AddUrl = () => {
   };
 
   const handleSumbit = async () => {
+    setIsInvalidUrl(false);
     console.log(checkValidUrl(isUrl));
     if (!checkValidUrl(isUrl)) {
       setIsInvalidUrl(true);
+    } else {
+      const res = await axios.post("http://localhost:3000/api/shorten", {
+        url: isUrl,
+      });
+      const shortUrl = res.data.shortUrl;
+      if (shortUrl) {
+        setIsShortUrl(shortUrl);
+        setResponse(true);
+      }
     }
-    const res = await axios.post("http://localhost:3000/api/shorten", {
-      url: isUrl,
-    });
-    console.log(res);
+  };
+
+  const shortUrl = () => {
+    return <h1 className="text-4xl font-bold text-white">{isShortUrl}</h1>;
   };
 
   return (
@@ -48,6 +60,7 @@ const AddUrl = () => {
         Submit
       </button>
       {isInvalidUrl ? <Alerurl /> : null}
+      {response ? shortUrl() : null}
     </div>
   );
 };
