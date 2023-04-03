@@ -14,7 +14,7 @@ const User = () => {
           <Link href="/links">Your Links</Link>
         </div>
         <div className="flex w-full flex-row justify-end pr-6 pt-2 text-xl text-white lg:pr-12">
-          <button onClick={signOut}>Sign out</button>
+          <button onClick={() => signOut()}>Sign out</button>
         </div>
       </>
     );
@@ -23,7 +23,7 @@ const User = () => {
   const signedOut = () => {
     return (
       <div className="flex w-full justify-end pr-12 pt-12 text-xl text-white">
-        <button onClick={signIn}>Sign In</button>
+        <button onClick={() => signIn()}>Sign In</button>
       </div>
     );
   };
