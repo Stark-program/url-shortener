@@ -7,13 +7,13 @@ const User = () => {
   const signedIn = () => {
     return (
       <>
-        <div className="flex w-full flex-row justify-end pr-12 pt-12 text-xl text-white">
+        <div className="flex w-full flex-row justify-end pr-6 pt-12 text-xl text-white lg:pr-12">
           Signed in as {session?.user?.name}
         </div>
-        <div className="flex w-full flex-row justify-end pr-12 pt-2 text-xl text-white">
+        <div className="flex w-full flex-row justify-end pr-6 pt-2 text-xl text-white lg:pr-12">
           <Link href="/links">Your Links</Link>
         </div>
-        <div className="flex w-full flex-row justify-end pr-12 pt-2 text-xl text-white">
+        <div className="flex w-full flex-row justify-end pr-6 pt-2 text-xl text-white lg:pr-12">
           <button onClick={signOut}>Sign out</button>
         </div>
       </>

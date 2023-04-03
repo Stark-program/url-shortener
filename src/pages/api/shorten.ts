@@ -7,7 +7,7 @@ const shorten = async (req: NextApiRequest, res: NextApiResponse) => {
   const { url } = req.body;
   const { user } = req.body;
   const urlId = Math.random().toString(36).substring(2, 8);
-  const shortUrl = `fwd.so/${urlId}`;
+  const shortUrl = `snippy.cc/${urlId}`;
 
   try {
     if (user) {
