@@ -9,8 +9,6 @@ const AddUrl = () => {
   const [isShortUrl, setIsShortUrl] = useState("");
   const [response, setResponse] = useState(false);
 
-  const port = process.env.PORT || 3000;
-
   const { data: session } = useSession();
 
   const checkValidUrl = (urlString: string) => {
@@ -31,7 +29,7 @@ const AddUrl = () => {
     if (!checkValidUrl(isUrl)) {
       setIsInvalidUrl(true);
     } else if (session) {
-      const res = await axios.post(`http://localhost:${port}/api/shorten`, {
+      const res = await axios.post(`/api/shorten`, {
         url: isUrl,
         user: session?.user?.email,
       });
@@ -41,7 +39,7 @@ const AddUrl = () => {
         setResponse(true);
       }
     } else {
-      const res = await axios.post(`http://localhost:${port}/api/shorten`, {
+      const res = await axios.post(`/api/shorten`, {
         url: isUrl,
       });
       const shortUrl = res.data.shortUrl;
