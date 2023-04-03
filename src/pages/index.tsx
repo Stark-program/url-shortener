@@ -1,6 +1,7 @@
 import { type NextPage } from "next";
 import Head from "next/head";
-import AddUrl from "../../components/AddUrl";
+import AddUrl from "../components/AddUrl";
+import User from "../components/User";
 
 const Home: NextPage = () => {
   return (
@@ -11,6 +12,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="flex min-h-screen flex-col items-center  bg-gradient-to-b from-[#2e026d] to-[#15162c]">
+        <User />
         <AddUrl />
       </main>
     </>

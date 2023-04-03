@@ -1,11 +1,12 @@
 import axios from "axios";
-import NotFound from "../../components/NotFound";
+import NotFound from "../components/NotFound";
+import type { GetServerSideProps } from "next";
 
 const UrlPage = () => {
   return;
 };
 
-export async function getServerSideProps(context: any) {
+export const getServerSideProps: GetServerSideProps = async (context) => {
   const { slug } = context.query;
 
   try {
@@ -41,6 +42,6 @@ export async function getServerSideProps(context: any) {
       };
     }
   }
-}
+};
 
 export default UrlPage;

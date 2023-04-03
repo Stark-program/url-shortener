@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import Alerurl from "./AlertUrl";
+import { useSession } from "next-auth/react";
 
 const AddUrl = () => {
   const [isUrl, setIsUrl] = useState("");
@@ -8,8 +9,10 @@ const AddUrl = () => {
   const [isShortUrl, setIsShortUrl] = useState("");
   const [response, setResponse] = useState(false);
 
+  const { data: session } = useSession();
+
   const checkValidUrl = (urlString: string) => {
-    var inputElement = document.createElement("input");
+    const inputElement = document.createElement("input");
     inputElement.type = "url";
     inputElement.value = urlString;
 
@@ -22,9 +25,19 @@ const AddUrl = () => {
 
   const handleSumbit = async () => {
     setIsInvalidUrl(false);
-    console.log(checkValidUrl(isUrl));
+
     if (!checkValidUrl(isUrl)) {
       setIsInvalidUrl(true);
+    } else if (session) {
+      const res = await axios.post("http://localhost:3000/api/shorten", {
+        url: isUrl,
+        user: session?.user?.email,
+      });
+      const shortUrl = res.data.shortUrl;
+      if (shortUrl) {
+        setIsShortUrl(shortUrl);
+        setResponse(true);
+      }
     } else {
       const res = await axios.post("http://localhost:3000/api/shorten", {
         url: isUrl,
@@ -44,6 +57,7 @@ const AddUrl = () => {
   return (
     <div className="container flex flex-col items-center  gap-12 px-4 py-16 ">
       <h1 className="text-6xl font-bold text-white">URL Shortener</h1>
+
       <input
         className="w-full max-w-md rounded-md border-2 border-white bg-transparent p-4 text-2xl text-white outline-none focus:border-[#ff00ff] focus:ring-2 focus:ring-[#ff00ff] focus:ring-opacity-50"
         placeholder="Enter your URL here"
