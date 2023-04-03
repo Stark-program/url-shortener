@@ -1,39 +1,47 @@
-import axios from "axios";
-import NotFound from "../components/NotFound";
 import type { GetServerSideProps } from "next";
+import { prisma } from "../server/db/client";
+import type { ParsedUrlQuery } from "querystring";
 
 const UrlPage = () => {
   return;
 };
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const { slug } = context.query;
+  const { slug }: ParsedUrlQuery = context.query;
 
-  try {
-    const res = await axios.get(`http://localhost:3000/api/getUrl`, {
-      params: {
-        urlId: slug,
+  const isArray = Array.isArray(slug);
+
+  if (isArray) {
+    return {
+      redirect: {
+        destination: "/404",
+        permanent: false,
       },
-    });
-    const url = res.data.url;
-    if (res.status === 200) {
-      return {
-        redirect: {
-          destination: url,
-          permanent: false,
+    };
+  } else {
+    try {
+      const url = await prisma.link.findFirst({
+        where: {
+          linkId: slug,
         },
-      };
-    }
-  } catch (err: any) {
-    if (err.response.status === 404) {
-      return {
-        redirect: {
-          destination: "/404",
-          permanent: false,
-        },
-      };
-    }
-    if (err.response.status === 500) {
+      });
+      if (url !== null) {
+        return {
+          redirect: {
+            destination: url?.url,
+            permanent: false,
+          },
+        };
+      } else {
+        return {
+          redirect: {
+            destination: "/404",
+            permanent: false,
+          },
+        };
+      }
+    } catch (err) {
+      console.log(err);
       return {
         redirect: {
           destination: "/500",
