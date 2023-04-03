@@ -1,7 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { PrismaClient } from "@prisma/client";
-
-export const prisma = new PrismaClient();
+import { prisma } from "../../server/db/client";
 
 const shorten = async (req: NextApiRequest, res: NextApiResponse) => {
   const { url } = req.body;

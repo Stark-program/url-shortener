@@ -1,7 +1,7 @@
 import { authOptions } from "./api/auth/[...nextauth]";
 import { getServerSession } from "next-auth/next";
 import type { GetServerSideProps, InferGetServerSidePropsType } from "next";
-import { prisma } from "./api/shorten";
+import { prisma } from "../server/db/client";
 import { HiOutlineClipboard } from "react-icons/hi";
 import { useEffect, useState } from "react";
 import Link from "next/link";
