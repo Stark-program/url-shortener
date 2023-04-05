@@ -19,7 +19,7 @@ function Links({
     <div className="min-h-screen min-w-fit bg-gradient-to-b from-[#2e026d] to-[#15162c]">
       {haveData ? (
         <div className="">
-          <div className="pl-12 pt-6">
+          <div className="pl-4 pt-2 lg:pl-12 lg:pt-6">
             <Link href="/" className="text-xl text-white">
               Home
             </Link>

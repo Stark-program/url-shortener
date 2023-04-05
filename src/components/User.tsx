@@ -8,7 +8,7 @@ const User = () => {
     return (
       <>
         <div className="flex w-full flex-row justify-end pr-4 pt-2 text-xl text-white lg:pt-12 lg:pr-12">
-          Signed in as {session?.user?.name}
+          {session?.user?.name}
         </div>
         <div className="flex w-full flex-row justify-end pr-4 pt-2 text-xl text-white lg:pr-12">
           <Link href="/links">Your Links</Link>
