@@ -15,10 +15,83 @@ function Links({
   useEffect(() => {
     setHaveData(true);
   }, []);
+
+  const largeScreenSizeTable = () => {
+    return (
+      <table className=" border-separate border-spacing-2 border border-slate-200 text-white sm:hidden md:max-w-md lg:visible lg:max-w-xl">
+        <thead>
+          <tr>
+            <th className=" border border-slate-400">Original Url</th>
+            <th className=" border border-slate-400">Short Url</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+        {userLinks.map(
+          (link: { url: string; shortUrl: string }, index: number) => {
+            return (
+              <>
+                <tr key={index}>
+                  <td className=" border border-slate-500 p-4">{link.url}</td>
+                  <td className=" flex items-center border border-slate-500 p-4">
+                    {link.shortUrl}
+                    <span className="pl-2">
+                      <button
+                        onClick={() => {
+                          navigator.clipboard.writeText(link.shortUrl);
+                          alert("Link copied to clipboard!");
+                        }}
+                      >
+                        <HiOutlineClipboard />
+                      </button>
+                    </span>
+                  </td>
+                </tr>
+              </>
+            );
+          }
+        )}
+      </table>
+    );
+  };
+
+  const mobileScreenSizeTable = () => {
+    return (
+      <table className=" border-separate border-spacing-2 border border-slate-200 text-white sm:visible sm:hidden md:max-w-md lg:visible lg:hidden lg:max-w-xl">
+        {userLinks.map(
+          (link: { url: string; shortUrl: string }, index: number) => {
+            return (
+              <>
+                <tr key={index}>
+                  <td className=" border border-slate-500 p-4">{link.url}</td>
+                </tr>
+                <tr>
+                  <td className=" flex items-center border border-slate-500 p-4">
+                    {link.shortUrl}
+                    <span className="pl-2">
+                      <button
+                        onClick={() => {
+                          navigator.clipboard.writeText(link.shortUrl);
+                          alert("Link copied to clipboard!");
+                        }}
+                      >
+                        <HiOutlineClipboard />
+                      </button>
+                    </span>
+                  </td>
+                </tr>
+              </>
+            );
+          }
+        )}
+      </table>
+    );
+  };
   return (
     <div className="min-h-screen w-screen bg-gradient-to-b from-[#2e026d] to-[#15162c]">
       {haveData ? (
         <div className="">
+          {largeScreenSizeTable()}
+          {mobileScreenSizeTable()}
           <div className="pl-4 pt-2 lg:pl-12 lg:pt-6">
             <Link href="/" className="text-xl text-white">
               Home
@@ -28,43 +101,7 @@ function Links({
             <h1 className="py-12 text-xl text-white">
               {`${session?.user?.name}'s links`}
             </h1>
-            <div className="">
-              <table className="  border-separate border-spacing-2 border border-slate-200 text-white md:max-w-md lg:max-w-xl">
-                <thead>
-                  <tr>
-                    <th className=" border border-slate-400">Original Url</th>
-                    <th className=" border border-slate-400">Short Url</th>
-                  </tr>
-                </thead>
-                <tbody></tbody>
-                {userLinks.map(
-                  (link: { url: string; shortUrl: string }, index: number) => {
-                    return (
-                      <>
-                        <tr key={index}>
-                          <td className=" border border-slate-500 p-4">
-                            {link.url}
-                          </td>
-                          <td className=" flex items-center border border-slate-500 p-4">
-                            {link.shortUrl}
-                            <span className="pl-2">
-                              <button
-                                onClick={() => {
-                                  navigator.clipboard.writeText(link.shortUrl);
-                                  alert("Link copied to clipboard!");
-                                }}
-                              >
-                                <HiOutlineClipboard />
-                              </button>
-                            </span>
-                          </td>
-                        </tr>
-                      </>
-                    );
-                  }
-                )}
-              </table>
-            </div>
+            <div className=""></div>
           </main>
         </div>
       ) : null}
