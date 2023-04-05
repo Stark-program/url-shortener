@@ -29,7 +29,7 @@ function Links({
               {`Here are ${session?.user?.name}'s links`}
             </h1>
             <div>
-              <table className="... max-w-xl border-separate border-spacing-2 border border-slate-200 text-white">
+              <table className="... border-separate border-spacing-2 border border-slate-200 text-white sm:max-w-xs lg:max-w-xl">
                 <thead>
                   <tr>
                     <th className="... border border-slate-400">
