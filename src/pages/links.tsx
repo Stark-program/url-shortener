@@ -24,12 +24,12 @@ function Links({
               Home
             </Link>
           </div>
-          <main className="flex  flex-col items-center ">
+          <main className="flex flex-col items-center ">
             <h1 className="py-12 text-xl text-white">
               {`${session?.user?.name}'s links`}
             </h1>
-            <div>
-              <table className="... max-w-xs border-separate border-spacing-2 border border-slate-200 text-white md:max-w-md lg:max-w-xl">
+            <div className="w-3/4">
+              <table className="...  border-separate border-spacing-2 border border-slate-200 text-white md:max-w-md lg:max-w-xl">
                 <thead>
                   <tr>
                     <th className="... border border-slate-400">
