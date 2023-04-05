@@ -18,7 +18,7 @@ function Links({
 
   const largeScreenSizeTable = () => {
     return (
-      <div className="sm:hidden md:visible">
+      <div className="hidden md:visible">
         <table className=" border-separate border-spacing-2 border border-slate-200 text-white md:max-w-md lg:max-w-xl">
           <thead>
             <tr>
@@ -104,7 +104,7 @@ function Links({
               {`${session?.user?.name}'s links`}
             </h1>
 
-            {/* {largeScreenSizeTable()} */}
+            {largeScreenSizeTable()}
             {mobileScreenSizeTable()}
           </main>
         </div>
