@@ -24,11 +24,11 @@ function Links({
               Home
             </Link>
           </div>
-          <main className="flex w-1/2 flex-col items-center justify-center ">
+          <main className="flex flex-col items-center justify-center ">
             <h1 className="py-12 text-xl text-white">
               {`${session?.user?.name}'s links`}
             </h1>
-            <div className="flex justify-center">
+            <div className="">
               <table className="  border-separate border-spacing-2 border border-slate-200 text-white md:max-w-md lg:max-w-xl">
                 <thead>
                   <tr>
