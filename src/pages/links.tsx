@@ -16,7 +16,7 @@ function Links({
     setHaveData(true);
   }, []);
   return (
-    <div className="ovewrflow-x-hidden min-h-screen w-screen bg-gradient-to-b from-[#2e026d] to-[#15162c]">
+    <div className="ovewrflow-x-hidden min-w-screen min-h-screen bg-gradient-to-b from-[#2e026d] to-[#15162c]">
       {haveData ? (
         <div className="">
           <div className="pl-4 pt-2 lg:pl-12 lg:pt-6">
@@ -28,7 +28,7 @@ function Links({
             <h1 className="py-12 text-xl text-white">
               {`${session?.user?.name}'s links`}
             </h1>
-            <div className="w-3/4">
+            <div className="flex flex-auto">
               <table className="...  border-separate border-spacing-2 border border-slate-200 text-white md:max-w-md lg:max-w-xl">
                 <thead>
                   <tr>
