@@ -16,7 +16,7 @@ function Links({
     setHaveData(true);
   }, []);
   return (
-    <div className="min-h-screen min-w-fit bg-gradient-to-b from-[#2e026d] to-[#15162c]">
+    <div className="min-w-screen min-h-screen bg-gradient-to-b from-[#2e026d] to-[#15162c]">
       {haveData ? (
         <div className="">
           <div className="pl-4 pt-2 lg:pl-12 lg:pt-6">
