@@ -29,13 +29,11 @@ function Links({
               {`${session?.user?.name}'s links`}
             </h1>
             <div className="flex flex-auto">
-              <table className="...  border-separate border-spacing-2 border border-slate-200 text-white md:max-w-md lg:max-w-xl">
+              <table className="  border-separate border-spacing-2 border border-slate-200 text-white md:max-w-md lg:max-w-xl">
                 <thead>
                   <tr>
-                    <th className="... border border-slate-400">
-                      Original Url
-                    </th>
-                    <th className="... border border-slate-400">Short Url</th>
+                    <th className=" border border-slate-400">Original Url</th>
+                    <th className=" border border-slate-400">Short Url</th>
                   </tr>
                 </thead>
                 <tbody></tbody>
@@ -44,10 +42,10 @@ function Links({
                     return (
                       <>
                         <tr key={index}>
-                          <td className="... border border-slate-500 p-4">
+                          <td className=" border border-slate-500 p-4">
                             {link.url}
                           </td>
-                          <td className="... flex items-center border border-slate-500 p-4">
+                          <td className=" flex items-center border border-slate-500 p-4">
                             {link.shortUrl}
                             <span className="pl-2">
                               <button
