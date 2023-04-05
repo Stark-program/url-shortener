@@ -104,7 +104,7 @@ function Links({
               {`${session?.user?.name}'s links`}
             </h1>
 
-            {largeScreenSizeTable()}
+            {/* {largeScreenSizeTable()} */}
             {mobileScreenSizeTable()}
           </main>
         </div>
