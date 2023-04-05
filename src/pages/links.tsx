@@ -24,7 +24,7 @@ function Links({
               Home
             </Link>
           </div>
-          <main className="flex flex-col items-center ">
+          <main className="flex w-1/2 flex-col items-center ">
             <h1 className="py-12 text-xl text-white">
               {`${session?.user?.name}'s links`}
             </h1>
