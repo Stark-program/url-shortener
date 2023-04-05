@@ -18,7 +18,7 @@ function Links({
 
   const largeScreenSizeTable = () => {
     return (
-      <div className="hidden md:visible">
+      <div className="hidden md:block">
         <table className=" border-separate border-spacing-2 border border-slate-200 text-white md:max-w-md lg:max-w-xl">
           <thead>
             <tr>
