@@ -57,37 +57,32 @@ function Links({
   const mobileScreenSizeTable = () => {
     return (
       <div className="md:hidden">
-        <div className="flex flex-1 flex-col">
-          {userLinks.map(
-            (link: { url: string; shortUrl: string }, index: number) => {
-              return (
-                <>
-                  <div
-                    className="flex w-2/3 flex-col justify-center space-y-2"
-                    key={index}
-                  >
-                    <div className="... flex items-center overflow-hidden truncate  border-slate-500 text-left text-white">
-                      {link.url}
-                    </div>
-                    <div className="flex items-center border border-slate-500 p-2 text-white">
-                      {link.shortUrl}
-                      <span className="pl-2">
-                        <button
-                          onClick={() => {
-                            navigator.clipboard.writeText(link.shortUrl);
-                            alert("Link copied to clipboard!");
-                          }}
-                        >
-                          <HiOutlineClipboard />
-                        </button>
-                      </span>
-                    </div>
+        {userLinks.map(
+          (link: { url: string; shortUrl: string }, index: number) => {
+            return (
+              <>
+                <div className=" w-2/3 justify-center space-y-2" key={index}>
+                  <div className="... items-center overflow-hidden truncate  border-slate-500 text-left text-white">
+                    {link.url}
                   </div>
-                </>
-              );
-            }
-          )}
-        </div>
+                  <div className="items-center border border-slate-500 p-2 text-white">
+                    {link.shortUrl}
+                    <span className="pl-2">
+                      <button
+                        onClick={() => {
+                          navigator.clipboard.writeText(link.shortUrl);
+                          alert("Link copied to clipboard!");
+                        }}
+                      >
+                        <HiOutlineClipboard />
+                      </button>
+                    </span>
+                  </div>
+                </div>
+              </>
+            );
+          }
+        )}
       </div>
     );
   };
