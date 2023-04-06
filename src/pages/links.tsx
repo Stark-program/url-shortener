@@ -18,14 +18,14 @@ function Links({
 
   const largeScreenSizeTable = () => {
     return (
-      <div className="hidden justify-center md:flex">
-        <div className="flex flex-1 flex-col justify-center">
+      <div className="hidden w-1/2 justify-center md:flex">
+        <div className="flex w-full flex-1 flex-col justify-center">
           {userLinks.map(
             (link: { url: string; shortUrl: string }, index: number) => {
               return (
                 <>
                   <div
-                    className="flex w-2/3 flex-row justify-center space-x-4"
+                    className="justify-space-between flex w-full flex-row space-x-4 space-y-4"
                     key={index}
                   >
                     <div className="... flex items-center overflow-hidden truncate  border-slate-500 text-left text-white">
@@ -61,7 +61,10 @@ function Links({
           (link: { url: string; shortUrl: string }, index: number) => {
             return (
               <>
-                <div className=" w-2/3 justify-center space-y-2" key={index}>
+                <div
+                  className=" w-2/3 justify-center space-y-2 pl-4"
+                  key={index}
+                >
                   <div className="... items-center overflow-hidden truncate  border-slate-500 text-left text-white">
                     {link.url}
                   </div>
