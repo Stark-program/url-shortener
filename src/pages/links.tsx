@@ -24,11 +24,14 @@ function Links({
             (link: { url: string; shortUrl: string }, index: number) => {
               return (
                 <>
-                  <div className="flex flex-row space-x-4" key={index}>
-                    <div className="... flex w-1/2 items-center overflow-hidden text-ellipsis border border-slate-500 text-center text-white">
+                  <div
+                    className="flex flex-row justify-center space-x-4"
+                    key={index}
+                  >
+                    <div className="... flex w-1/2 items-center overflow-hidden text-ellipsis border border-slate-500 text-left text-white">
                       {link.url}
                     </div>
-                    <div className="flex items-center border border-slate-500 text-white">
+                    <div className="flex items-center border border-slate-500 p-2 text-white">
                       {link.shortUrl}
                       <span className="pl-2">
                         <button
@@ -59,11 +62,14 @@ function Links({
             (link: { url: string; shortUrl: string }, index: number) => {
               return (
                 <>
-                  <div className="flex flex-col space-y-2" key={index}>
-                    <div className="... flex w-1/2 items-center overflow-hidden text-ellipsis border border-slate-500 text-center text-white">
+                  <div
+                    className="flex flex-col justify-center space-y-2"
+                    key={index}
+                  >
+                    <div className="... flex w-1/2 items-center overflow-hidden text-ellipsis border border-slate-500 text-left text-white">
                       {link.url}
                     </div>
-                    <div className="flex items-center border border-slate-500 text-white">
+                    <div className="flex items-center border border-slate-500 p-2 text-white">
                       {link.shortUrl}
                       <span className="pl-2">
                         <button
