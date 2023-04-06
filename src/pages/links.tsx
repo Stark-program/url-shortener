@@ -25,7 +25,7 @@ function Links({
               return (
                 <>
                   <div
-                    className="justify-space-between flex w-full flex-row space-x-4 space-y-4"
+                    className="flex w-full flex-row justify-between space-x-4 space-y-4"
                     key={index}
                   >
                     <div className="... flex items-center overflow-hidden truncate  border-slate-500 text-left text-white">
