@@ -124,17 +124,26 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     };
   }
   const email = session.user?.email;
-  const userLinks = await prisma.link.findMany({
-    where: {
-      user: email,
-    },
-  });
-  return {
-    props: {
-      session,
-      userLinks,
-    },
-  };
+  if (email === undefined || email === null) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  } else {
+    const userLinks = await prisma.link.findMany({
+      where: {
+        user: email,
+      },
+    });
+    return {
+      props: {
+        session,
+        userLinks,
+      },
+    };
+  }
 };
 
 export default Links;
