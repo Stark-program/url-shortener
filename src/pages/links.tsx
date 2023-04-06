@@ -19,7 +19,7 @@ function Links({
   const largeScreenSizeTable = () => {
     return (
       <div className="hidden md:block">
-        <div className="flex flex-1 flex-col">
+        <div className="flex flex-1 flex-col justify-center">
           {userLinks.map(
             (link: { url: string; shortUrl: string }, index: number) => {
               return (
