@@ -19,21 +19,16 @@ function Links({
   const largeScreenSizeTable = () => {
     return (
       <div className="hidden md:block">
-        <table className=" border-separate border-spacing-2 border border-slate-200 text-white md:max-w-md lg:max-w-xl">
-          <thead>
-            <tr>
-              <th className=" border border-slate-400">Original Url</th>
-              <th className=" border border-slate-400">Short Url</th>
-            </tr>
-          </thead>
-          <tbody></tbody>
+        <div className="flex flex-1 flex-col">
           {userLinks.map(
             (link: { url: string; shortUrl: string }, index: number) => {
               return (
                 <>
-                  <tr key={index}>
-                    <td className=" border border-slate-500 p-4">{link.url}</td>
-                    <td className=" flex items-center border border-slate-500 p-4">
+                  <div className="flex flex-row space-x-4" key={index}>
+                    <div className="flex w-52 items-center text-ellipsis border border-slate-500 text-center text-white">
+                      {link.url}
+                    </div>
+                    <div className="flex items-center border border-slate-500 text-white">
                       {link.shortUrl}
                       <span className="pl-2">
                         <button
@@ -45,13 +40,13 @@ function Links({
                           <HiOutlineClipboard />
                         </button>
                       </span>
-                    </td>
-                  </tr>
+                    </div>
+                  </div>
                 </>
               );
             }
           )}
-        </table>
+        </div>
       </div>
     );
   };
@@ -59,16 +54,16 @@ function Links({
   const mobileScreenSizeTable = () => {
     return (
       <div className="md:hidden">
-        <table className=" border-separate border-spacing-2 border border-slate-200 text-white md:max-w-md lg:max-w-xl">
+        <div className="flex flex-1 flex-col">
           {userLinks.map(
             (link: { url: string; shortUrl: string }, index: number) => {
               return (
                 <>
-                  <tr key={index} className="w-1/3">
-                    <td className=" border border-slate-500 p-4">{link.url}</td>
-                  </tr>
-                  <tr>
-                    <td className=" flex items-center border border-slate-500 p-4">
+                  <div className="flex flex-col space-y-2" key={index}>
+                    <div className="flex w-24 items-center text-ellipsis border border-slate-500 text-center text-white">
+                      {link.url}
+                    </div>
+                    <div className="flex items-center border border-slate-500 text-white">
                       {link.shortUrl}
                       <span className="pl-2">
                         <button
@@ -80,13 +75,13 @@ function Links({
                           <HiOutlineClipboard />
                         </button>
                       </span>
-                    </td>
-                  </tr>
+                    </div>
+                  </div>
                 </>
               );
             }
           )}
-        </table>
+        </div>
       </div>
     );
   };
