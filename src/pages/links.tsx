@@ -95,7 +95,7 @@ function Links({
               Home
             </Link>
           </div>
-          <main className="flex w-full flex-col items-center justify-center ">
+          <main className="w-full flex-col items-center justify-center ">
             <h1 className="py-12 text-xl text-white">
               {`${session?.user?.name}'s links`}
             </h1>
