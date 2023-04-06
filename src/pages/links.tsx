@@ -62,7 +62,7 @@ function Links({
             return (
               <>
                 <div
-                  className=" w-2/3 justify-center space-y-2 pl-4"
+                  className=" w-2/3 justify-center space-y-2 pl-4 pb-4"
                   key={index}
                 >
                   <div className="... items-center overflow-hidden truncate  border-slate-500 text-left text-white">
