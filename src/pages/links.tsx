@@ -25,7 +25,7 @@ function Links({
               return (
                 <>
                   <div className="flex flex-row space-x-4" key={index}>
-                    <div className="flex w-52 items-center text-ellipsis border border-slate-500 text-center text-white">
+                    <div className="... flex w-1/2 items-center overflow-hidden text-ellipsis border border-slate-500 text-center text-white">
                       {link.url}
                     </div>
                     <div className="flex items-center border border-slate-500 text-white">
@@ -60,7 +60,7 @@ function Links({
               return (
                 <>
                   <div className="flex flex-col space-y-2" key={index}>
-                    <div className="flex w-24 items-center text-ellipsis border border-slate-500 text-center text-white">
+                    <div className="... flex w-1/2 items-center overflow-hidden text-ellipsis border border-slate-500 text-center text-white">
                       {link.url}
                     </div>
                     <div className="flex items-center border border-slate-500 text-white">
