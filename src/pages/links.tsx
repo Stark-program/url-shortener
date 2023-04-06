@@ -64,7 +64,7 @@ function Links({
             (link: { url: string; shortUrl: string }, index: number) => {
               return (
                 <>
-                  <tr key={index}>
+                  <tr key={index} className="w-1/3">
                     <td className=" border border-slate-500 p-4">{link.url}</td>
                   </tr>
                   <tr>
@@ -99,7 +99,7 @@ function Links({
               Home
             </Link>
           </div>
-          <main className="flex flex-col items-center justify-center ">
+          <main className="flex w-full flex-col items-center justify-center ">
             <h1 className="py-12 text-xl text-white">
               {`${session?.user?.name}'s links`}
             </h1>
