@@ -25,13 +25,13 @@ function Links({
               return (
                 <>
                   <div
-                    className="flex flex-row justify-center space-x-4"
+                    className="flex w-2/3 flex-row justify-center space-x-4"
                     key={index}
                   >
-                    <div className="... flex w-1/2 items-center overflow-hidden truncate border border-slate-500 text-left text-white">
+                    <div className="... flex items-center overflow-hidden truncate  border-slate-500 text-left text-white">
                       {link.url}
                     </div>
-                    <div className="flex items-center border border-slate-500 p-2 text-white">
+                    <div className="flex items-center border border-slate-500 p-2 text-right text-white">
                       {link.shortUrl}
                       <span className="pl-2">
                         <button
@@ -63,10 +63,10 @@ function Links({
               return (
                 <>
                   <div
-                    className="flex flex-col justify-center space-y-2"
+                    className="flex w-2/3 flex-col justify-center space-y-2"
                     key={index}
                   >
-                    <div className="... flex w-1/2 items-center overflow-hidden truncate border border-slate-500 text-left text-white">
+                    <div className="... flex items-center overflow-hidden truncate  border-slate-500 text-left text-white">
                       {link.url}
                     </div>
                     <div className="flex items-center border border-slate-500 p-2 text-white">
